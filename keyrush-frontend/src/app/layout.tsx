@@ -32,34 +32,39 @@ export default function RootLayout({
         <nav className="flex items-center justify-center py-4 text-black gap-24">
           
           <Link 
-          className=" inline-flex items-center justify-center
-      px-6 py-1
-      bg-[#C0C0C0] text-black text-30px
-      border-t-2 border-l-2 border-t-white border-l-white
-      border-b-2 border-r-2 border-[#808080]
-      shadow-[1px_1px_0_#000]
-      select-none
-      active:border-t-2 active:border-l-2 active:border-t-[#808080] active:border-l-[#808080]
-      active:border-b-2 active:border-r-2 active:border-b-white active:border-r-white
-      active:shadow-none
-      active:translate-x-px active:translate-y-px" 
+          className="   inline-flex items-center justify-center
+                        px-6 py-1
+                        bg-[#C0C0C0] text-black text-30px
+                        border-t-2 border-l-2 border-t-white border-l-white
+                        border-b-2 border-r-2 border-[#808080]
+                        shadow-[1px_1px_0_#000]
+                        select-none
+                        active:border-t-2 active:border-l-2 active:border-t-[#808080] active:border-l-[#808080]
+                        active:border-b-2 active:border-r-2 active:border-b-white active:border-r-white
+                        active:shadow-none
+                        active:translate-x-px active:translate-y-px
+                        cursor-pointer
+                        hover:brightness-[1.03]
+                        hover:shadow-[1px_1px_0_#000,inset_1px_1px_0_#fff]
+                        hover:underline" 
           href="/">Home</Link>
           <Link
-          className=" inline-flex items-center justify-center
-      px-6 py-1
-      bg-[#C0C0C0] text-black text-30px
-      border-t-2 border-l-2 border-t-white border-l-white
-      border-b-2 border-r-2 border-[#808080]
-      shadow-[1px_1px_0_#000]
-      select-none
-      active:border-t-2 active:border-l-2 active:border-t-[#808080] active:border-l-[#808080]
-      active:border-b-2 active:border-r-2 active:border-b-white active:border-r-white
-      active:shadow-none
-      active:translate-x-px active:translate-y-px
-          " href="/leaderboard">Leaderboard</Link>
-    
-
-          
+            className=" inline-flex items-center justify-center
+                      px-6 py-1
+                      bg-[#C0C0C0] text-black text-30px
+                      border-t-2 border-l-2 border-t-white border-l-white
+                      border-b-2 border-r-2 border-[#808080]
+                      shadow-[1px_1px_0_#000]
+                      select-none
+                      active:border-t-2 active:border-l-2 active:border-t-[#808080] active:border-l-[#808080]
+                      active:border-b-2 active:border-r-2 active:border-b-white active:border-r-white
+                      active:shadow-none
+                      active:translate-x-px active:translate-y-px
+                      cursor-pointer
+                      hover:brightness-[1.03]
+                      hover:shadow-[1px_1px_0_#000,inset_1px_1px_0_#fff]
+                      hover:underline"
+              href="/leaderboard">Leaderboard</Link>        
          
         </nav>
         </header>
