@@ -7,6 +7,7 @@ const PARA = "The quiet rhythm of fast typing creates a steady flow where though
 const TypingWindow = () => {
     const [time, setTime] = useState(15)
     const [reset, setReset] = useState(false)
+    const [WPM, setWPM] = useState(0)
 
   return (
       <div
@@ -21,12 +22,9 @@ const TypingWindow = () => {
           <div className="p-2">
             <div className="text-lg mb-2 px-1 flex justify-between">
               <p className=' text-[#000080] font-bold text-2xl'>{time}</p>
-              <div className='flex justify-between'>
-                <p className='px-10'>Reset</p>
-              <TimeDropdown time={time} setTime = {setTime}/>
-              </div>
-              
-              
+              <p>WPM :</p>
+              <p className=''>Reset</p>  
+              <TimeDropdown time={time} setTime = {setTime}/>        
             </div>          
             <div
               className="p-0.5 bg-[#C0C0C0]
@@ -34,7 +32,7 @@ const TypingWindow = () => {
               border-b-2 border-r-2 border-white"
             >
               <div className="bg-[#BDBDBD] h-70 text-6xl overflow-hidden select-none">
-                <p className='leading-tight line-clamp-3'>{PARA}</p>
+                
                 <TypingLogic time = {time} setTime = {setTime} PARA = {PARA}/>
                  </div>
             </div>

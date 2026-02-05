@@ -7,7 +7,7 @@ interface TimeDropdownProps {
     PARA : string
 }
 
-const TypingLogic = ({time,setTime}:TimeDropdownProps) => {
+const TypingLogic = ({time,setTime,PARA}:TimeDropdownProps) => {
    const [start,setStart] = useState(false)
    const [input,setInput] = useState("")
    const startedRef = useRef(false)
@@ -54,11 +54,25 @@ const TypingLogic = ({time,setTime}:TimeDropdownProps) => {
                 clearInterval(intervalId)
         }
     },[start, setTime])
-
-   
+    const text = PARA
+    const currPos = input.length - 1
+    const expected = text[currPos]
+    const typed = input[currPos]
+    let correct = 0
+    let wrong = 0
+    if(currPos>-1 && input.length<=text.length && time>=0){
+        if (typed === expected){
+        correct +=1
+        }
+        else {
+        wrong += 1
+    }
+    }
+    
+    
     
   return (
-    <div>TypingLogic</div>
+    <p className='leading-tight line-clamp-3'>{PARA}</p>
   )
 }
 
