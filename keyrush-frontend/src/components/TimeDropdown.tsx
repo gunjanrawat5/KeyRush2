@@ -2,12 +2,12 @@
 const times = [15,30,60]
 interface TimeDropdownProps {
   time: number;
-  setTime: React.Dispatch<React.SetStateAction<number>>;
+  onChange: (newDuration: number) => void
 }
-const TimeDropdown = ({time, setTime}:TimeDropdownProps) => {
+const TimeDropdown = ({time, onChange}:TimeDropdownProps) => {
 
   return (
-    <select value={time} onChange={(e)=> setTime(Number(e.target.value))}
+    <select value={time} onChange={(e)=> onChange(Number(e.target.value))}
      className="
         bg-[#C0C0C0] text-sm px-2 py-0.5
         border-t-2 border-l-2 border-white
