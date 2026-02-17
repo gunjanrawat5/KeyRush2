@@ -40,16 +40,22 @@ const TypingWindow = () => {
 
         <div className="p-2">
           <div className="text-xl mb-2 px-1 flex justify-between">
-            <p className="text-[#000080] font-bold">{timeLeft}</p>
-            <p>
+            <p className="text-[#000080] font-bold mt-1">{timeLeft}</p>
+            <p className="mt-1">
               WPM : <span className="font-bold">{WPM}</span>
             </p>
-            <p>
+            <p className="mt-1">
               Accuracy : <span className="font-bold">{accuracy}%</span>
             </p>
 
-            <p className="">Reset</p>
-
+            <button
+              type="button"
+              onClick={() => resetGame(duration)}
+              className="px-2 py-0.5 bg-[#C0C0C0]
+              border-t-2 border-l-2 border-white
+              border-b-2 border-r-2 border-b-[#404040] border-r-[#404040]                    active:border-t-2 active:border-l-2 active:border-t-[#404040] active:border-l-[#404040] active:border-b-2 active:border-r-2 active:border-b-white active:border-r-white text-[#000080] font-bold" >
+              Reset
+            </button>
             <TimeDropdown time={duration} onChange={handleDurationChange} />
           </div>
 
