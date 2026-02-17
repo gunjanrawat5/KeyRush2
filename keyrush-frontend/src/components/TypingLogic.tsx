@@ -1,5 +1,6 @@
 'use client'
 import React, { SetStateAction, useEffect, useRef, useState, useImperativeHandle, forwardRef } from 'react'
+import TextViewport from './TextViewport'
 
 interface TypingProps {
   duration: number
@@ -165,8 +166,14 @@ const TypingLogic = forwardRef<TypingLogicHandle, TypingProps>(({
 
 
   return (
-    <p className='leading-tight whitespace-pre-wrap break-words'>{renderText()}</p>
-  )
+  <TextViewport
+    text={PARA}
+    input={input}
+    timeLeft={timeLeft}
+    maxLines={3}
+  />
+)
+
 })
 
 TypingLogic.displayName = 'TypingLogic'
