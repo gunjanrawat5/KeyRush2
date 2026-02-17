@@ -53,7 +53,7 @@ const TypingWindow = () => {
               onClick={() => resetGame(duration)}
               className="px-2 py-0.5 bg-[#C0C0C0]
               border-t-2 border-l-2 border-white
-              border-b-2 border-r-2 border-b-[#404040] border-r-[#404040]                    active:border-t-2 active:border-l-2 active:border-t-[#404040] active:border-l-[#404040] active:border-b-2 active:border-r-2 active:border-b-white active:border-r-white text-[#000080] font-bold" >
+              border-b-2 border-r-2 border-b-[#404040] border-r-[#404040]                    active:border-t-2 active:border-l-2 active:border-t-[#404040] active:border-l-[#404040] active:border-b-2 active:border-r-2 active:border-b-white active:border-r-white text-[#000080]" >
               Reset
             </button>
             <TimeDropdown time={duration} onChange={handleDurationChange} />

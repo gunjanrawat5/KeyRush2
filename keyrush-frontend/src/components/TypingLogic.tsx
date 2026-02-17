@@ -135,8 +135,37 @@ const TypingLogic = forwardRef<TypingLogicHandle, TypingProps>(({
       }
     }, [input, timeLeft, PARA, setWPM, setAccuracy])
 
+    // UI colors and caret 
+    const caretIndex = Math.min(input.length, PARA.length)
+    const renderText = () => {
+        return PARA.split("").map((char, index) => {
+            const typed = index < input.length
+            const isCorrect = typed && input[index] === PARA[index]
+
+            // base color
+            let className = "text-black"
+            if (typed) className = isCorrect ? "text-green-600" : "text-red-600"
+
+            // If this is the next char to type, show a blinking caret
+            const showCaret = index === caretIndex && timeLeft > 0
+
+            return (
+            <span key={index} className="relative">
+                {showCaret && (
+                <span
+                    className="caret-blink absolute -left-0.5 top-0.5 h-[1.1em] w-0.5 bg-black"
+                    aria-hidden="true"
+                />
+                )}
+                <span className={className}>{char}</span>
+            </span>
+            )
+        })
+    }
+
+
   return (
-    <p className='leading-tight line-clamp-3'>{PARA}</p>
+    <p className='leading-tight whitespace-pre-wrap break-words'>{renderText()}</p>
   )
 })
 
