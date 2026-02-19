@@ -1,5 +1,5 @@
 "use client";
-const times = [15,30,60]
+const times = [15,30,45,60]
 interface TimeDropdownProps {
   time: number;
   onChange: (newDuration: number) => void

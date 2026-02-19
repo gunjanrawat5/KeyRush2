@@ -8,7 +8,7 @@ export default function LeaderboardTable() {
     const [mode, setMode] = useState("15s")
 
     const activeClasses =
-    "px-4 py-2 bg-[#000080] text-white font-bold " +
+    "px-4 py-2 bg-[#5A5A5A] text-white font-bold " +
     "border-t-2 border-l-2 border-white " +
     "border-b-2 border-r-2 border-b-[#404040] border-r-[#404040]"
 
@@ -19,8 +19,8 @@ export default function LeaderboardTable() {
 
 
     const modeActiveClasses =
-    "px-4 py-2 text-[#000080] font-bold " +
-    "border-t-2 border-l-2 border-white " +
+    "px-4 py-2 bg-[#003399] text-white font-bold " +
+    "border-t-2 border-l-2 border-white shadow-inner " +
     "border-b-2 border-r-2 border-b-[#404040] border-r-[#404040]"
 
     const modeInactiveClasses =
@@ -37,14 +37,15 @@ export default function LeaderboardTable() {
     const mode45Class = mode === "45s"?modeActiveClasses:modeInactiveClasses
     const mode60Class = mode === "60s"?modeActiveClasses:modeInactiveClasses
     
-    
-
     return(
             <div
             className="w-1/2 bg-[#C0C0C0] p-0.5
             border-t-2 border-l-2 border-white
             border-b-2 border-r-2 border-b-[#404040] border-r-[#404040]"
             >
+            <div className="h-6 bg-[#000080] text-white flex items-center px-2 font-bold text-sm">
+          Key Rush
+        </div>
             <table className="w-full text-lg table-fixed border border-[#808080] bg-[#C0C0C0]">
                 <thead className="border-b">
                     <tr className="divide-x divide-[#808080]">
@@ -54,13 +55,13 @@ export default function LeaderboardTable() {
                         </th>
                     </tr>
                     <tr className="divide-x divide-[#808080]">
-                        <th  className={mode15Class}><button onClick={()=> setMode("15s")} className='cursor-pointer'>15s</button>
+                        <th  className={mode15Class}><button onClick={()=> setMode("15s")} className='cursor-pointer w-full'>15s</button>
                         </th>
-                        <th  className={mode30Class}><button onClick={()=> setMode("30s")} className='cursor-pointer'>30s</button>
+                        <th  className={mode30Class}><button onClick={()=> setMode("30s")} className='cursor-pointer w-full'>30s</button>
                         </th>
-                        <th  className={mode45Class}><button onClick={()=> setMode("45s")} className='cursor-pointer'>45s</button>
+                        <th  className={mode45Class}><button onClick={()=> setMode("45s")} className='cursor-pointer w-full'>45s</button>
                         </th>
-                        <th  className={mode60Class}><button onClick={()=> setMode("60s")} className='cursor-pointer'>60s</button>
+                        <th  className={mode60Class}><button onClick={()=> setMode("60s")} className='cursor-pointer w-full'>60s</button>
                         </th>
                         
                     </tr>
