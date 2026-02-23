@@ -92,6 +92,18 @@ export async function POST(req: Request) {
     const correct_chars = correctTyped;
     const total_chars = totalTyped;
 
+    // Ensure a profiles row exists for logged-in users (prevents FK error)
+    if (user_id) {
+    const { error: profileErr } = await supabaseAdmin
+        .from("profiles")
+        .upsert({ id: user_id }, { onConflict: "id" });
+
+    if (profileErr) {
+        return NextResponse.json({ error: profileErr.message }, { status: 500 });
+    }
+    }
+
+
     // --- insert (service role) ---
     const { data, error } = await supabaseAdmin
       .from("runs")

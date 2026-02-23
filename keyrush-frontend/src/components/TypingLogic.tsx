@@ -14,6 +14,7 @@ interface TypingProps {
 // Export the ref handle type so parent can use it
 export interface TypingLogicHandle {
   reset: () => void
+  getStats: () => { input: string; totalTyped: number; correctTyped: number}
 }
 
 const TypingLogic = forwardRef<TypingLogicHandle, TypingProps>(({
@@ -51,6 +52,11 @@ const TypingLogic = forwardRef<TypingLogicHandle, TypingProps>(({
          totalTypedRef.current = 0
         correctTypedRef.current = 0
       },
+      getStats: () => ({
+      input: inputRef.current,
+      totalTyped: totalTypedRef.current,
+      correctTyped: correctTypedRef.current,
+  }),
     }))
 
     // Update refs when props change (no setState, just ref updates)

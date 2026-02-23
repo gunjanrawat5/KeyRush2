@@ -1,9 +1,15 @@
+import Login from "../components/Login";
 import TypingWindow from "../components/TypingWindow";
 
 const page = () => {
   return (
-    <div className="flex justify-center mt-40">
+    <div >
+      <Login/>
+      <div className="flex justify-center mt-25">
+      
      <TypingWindow/>
+      </div>
+      
     </div>
   );
 };

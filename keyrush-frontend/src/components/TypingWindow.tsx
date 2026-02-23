@@ -26,6 +26,51 @@ const TypingWindow = () => {
     resetGame(newDuration)
   }
 
+  useEffect(() => {
+  if (timeLeft !== 0) return;
+
+  // prevent double-submit if React re-renders while timeLeft is 0
+  let cancelled = false;
+
+  (async () => {
+    const stats = typingRef.current?.getStats();
+    if (!stats) return;
+
+    const elapsedSec = duration; // submit when timeLeft hits 0
+    const payload = {
+      mode: `${duration}s`,          // "15s" | "30s" | ...
+      duration_ms: duration * 1000,  
+      elapsedSec,
+      totalTyped: stats.totalTyped,
+      correctTyped: stats.correctTyped,
+      text: PARA,
+      input: stats.input,
+    };
+
+    try {
+      const res = await fetch("/api/submit-run", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (!cancelled && !res.ok) {
+        console.error("submit-run failed:", data);
+      } else if (!cancelled) {
+        console.log("submit-run ok:", data);
+      }
+    } catch (e) {
+      if (!cancelled) console.error("submit-run error:", e);
+    }
+  })();
+
+  return () => {
+    cancelled = true;
+  };
+}, [timeLeft, duration]);
+
+
 
   return (
     <div
