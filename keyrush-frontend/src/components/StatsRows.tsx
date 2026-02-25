@@ -37,7 +37,7 @@ export default function StatsRows({ mode }: { mode: Mode }) {
       if (cancelled) return
 
       if (userErr) {
-        setError(userErr.message)
+        setError("Login to see your stats")
         setRows([])
         setLoading(false)
         return
@@ -77,7 +77,7 @@ export default function StatsRows({ mode }: { mode: Mode }) {
       if (cancelled) return
 
       if (error) {
-        setError(error.message)
+        setError("Login to see your stats")
         setRows([])
       } else {
         setRows(data ?? [])

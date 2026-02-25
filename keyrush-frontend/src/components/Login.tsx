@@ -5,10 +5,12 @@ import Image from 'next/image'
 
 const Login = () => {
   const [signedIn, setSignedIn] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     supabaseBrowser.auth.getUser().then(({ data }) => {
       setSignedIn(!!data.user)
+      setLoading(false)
     })
 
     const { data: sub } = supabaseBrowser.auth.onAuthStateChange((_event, session) => {
@@ -31,6 +33,17 @@ const Login = () => {
     await supabaseBrowser.auth.signOut()
     window.location.reload()
   }
+
+  if (loading) {
+  return (
+    <div className="flex gap-10">
+      <div>
+        <div className="ml-10 mt-10 w-15 h-15 opacity-0" />
+        <p className="ml-12 opacity-0">Login</p>
+      </div>
+    </div>
+  )
+}
 
   return (
     <div className="flex gap-10">
