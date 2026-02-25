@@ -2,6 +2,8 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import { supabaseBrowser } from "@/src/lib/supabase/client";
+import { useRouter } from "next/navigation";
+
 
 function normalizeUsername(raw: string) {
   return raw
@@ -13,6 +15,9 @@ function normalizeUsername(raw: string) {
 }
 
 export default function ProfilePage() {
+
+  const router = useRouter();
+
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState<string | null>(null);
 
@@ -68,7 +73,7 @@ export default function ProfilePage() {
 
     setSaving(true);
 
-    // Optional: pre-check if username is taken
+    // pre-check if username is taken
     const { data: existing, error: existsErr } = await supabaseBrowser
       .from("profiles")
       .select("id")
@@ -102,7 +107,9 @@ export default function ProfilePage() {
     }
 
     setCurrentUsername(username);
-    setMsg("Saved!");
+    router.push("/");   // redirect to homepage
+    router.refresh();   // refresh server components
+
   };
 
   if (loading) return <div className="p-6">Loading…</div>;
