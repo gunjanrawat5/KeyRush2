@@ -3,9 +3,12 @@ import React, { useState } from "react"
 import LeaderRows from "./LeaderRows"
 import StatsRows from "./StatsRows"
 
+type Mode = "15s" | "30s" | "45s" | "60s"
+type View = "leaderboard" | "stats"
+
 export default function LeaderboardTable() {
-    const [view, setView] = useState("leaderboard")
-    const [mode, setMode] = useState("15s")
+    const [view, setView] = useState<View>("leaderboard")
+    const [mode, setMode] = useState<Mode>("15s")
 
     const activeClasses =
     "px-4 py-2 bg-[#5A5A5A] text-white font-bold " +
@@ -72,7 +75,7 @@ export default function LeaderboardTable() {
                         <th className="px-4 py-3 text-[#000080] font-bold">Date</th>
                     </tr>
                 </thead>
-                {view === "leaderboard"?<LeaderRows/>:<StatsRows/>}
+                {view === "leaderboard"?<LeaderRows mode = {mode}/>:<StatsRows mode = {mode}/>}
             </table>
         </div>
     )
