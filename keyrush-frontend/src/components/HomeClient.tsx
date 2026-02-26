@@ -7,7 +7,7 @@ export default function HomeClient() {
   return (
     <div>
       <Login />
-      <div className="flex justify-center mt-25">
+      <div className="flex justify-center mt-15 3xl:mt-25">
         <TypingWindow />
       </div>
     </div>

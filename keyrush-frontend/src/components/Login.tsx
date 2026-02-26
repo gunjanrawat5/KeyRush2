@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <div className="flex gap-10">
       <div>
-        <div className="ml-10 mt-10 w-15 h-15 opacity-0" />
+        <div className="ml-10 mt-10 w-12 h-15 opacity-0" />
         <p className="ml-12 opacity-0">Login</p>
       </div>
     </div>
@@ -49,18 +49,30 @@ const Login = () => {
     <div className="flex gap-10">
       {!signedIn ? (
         <div>
-          <div className="ml-10 mt-10 w-15 h-15">
+          <div className="ml-10 mt-10 w-12 h-15 3xl:w-160 3xl:w-160">
             <button onClick={signIn} className="w-full h-full cursor-pointer">
-              <Image src = "/recycle_bin.png" alt='Login image' width={50} height={40}/>
+              <Image
+                src="/recycle_bin.png"
+                alt="Login image"
+                width={50}
+                height={50}
+                className="w-full h-full object-contain"
+              />
             </button>
           </div>
           <p className="ml-12">Login</p>
         </div>
       ) : (
         <div>
-          <div className="ml-10 mt-10 w-15 h-15">
+          <div className="ml-10 mt-10 w-12 h-15 3xl:w-160 3xl:w-160">
             <button onClick={signOut} className="w-full h-full cursor-pointer">
-              <Image src = "/recycle_bin_full.png" alt='Login image' width={50} height={40}/>
+              <Image
+              src="/recycle_bin_full.png"
+              alt="Login image"
+              width={50}
+              height={50}
+              className="w-full h-full object-contain"
+            />
             </button>
           
           </div>

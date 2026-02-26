@@ -101,7 +101,7 @@ const TypingWindow = () => {
   }, [timeLeft, duration, para]);  // ✅ include para
 
   return (
-    <div className="w-300 bg-[#C0C0C0] p-0.5
+    <div className="w-150 lg:w-200 xl:w-250 2xl:w-350 bg-[#C0C0C0] p-0.5
       border-t-2 border-l-2 border-white
       border-b-2 border-r-2 border-b-[#404040] border-r-[#404040]">
       <div className="border border-[#808080] bg-[#C0C0C0]">
